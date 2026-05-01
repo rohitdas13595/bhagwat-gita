@@ -1,0 +1,33 @@
+{
+  "files": {
+    "code": [
+      "/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/next-env.d.ts",
+      "/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/next.config.ts",
+      "/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/postcss.config.mjs",
+      "/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/eslint.config.mjs",
+      "/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/app/page.tsx",
+      "/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/app/layout.tsx"
+    ],
+    "document": [
+      "/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/AGENTS.md",
+      "/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/CLAUDE.md",
+      "/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/README.md",
+      "/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/data/summary.md"
+    ],
+    "paper": [],
+    "image": [
+      "/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/public/next.svg",
+      "/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/public/file.svg",
+      "/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/public/vercel.svg",
+      "/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/public/globe.svg",
+      "/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/public/window.svg"
+    ],
+    "video": []
+  },
+  "total_files": 15,
+  "total_words": 4161,
+  "needs_graph": false,
+  "warning": "Corpus is ~4,161 words - fits in a single context window. You may not need a graph.",
+  "skipped_sensitive": [],
+  "graphifyignore_patterns": 4
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhagavad Gita - Knowledge Graph</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0f172a;
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #e2e8f0;
+    overflow: hidden;
+  }
+  #header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+    background: linear-gradient(180deg, #0f172a 60%, transparent);
+    padding: 20px 30px 40px;
+  }
+  #header h1 { font-size: 24px; font-weight: 700; color: #f8fafc; }
+  #header p { font-size: 14px; color: #94a3b8; margin-top: 4px; }
+  #stats {
+    position: fixed; bottom: 20px; left: 20px; z-index: 10;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 13px;
+  }
+  #stats .stat { display: flex; justify-content: space-between; gap: 20px; padding: 4px 0; }
+  #stats .stat-value { color: #60a5fa; font-weight: 600; }
+  #legend {
+    position: fixed; bottom: 20px; right: 20px; z-index: 10;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  #legend h3 { font-size: 13px; font-weight: 600; margin-bottom: 8px; }
+  .legend-item { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  #tooltip {
+    position: absolute; z-index: 20;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    max-width: 280px;
+  }
+  #tooltip .tt-title { font-weight: 600; color: #f8fafc; margin-bottom: 4px; }
+  #tooltip .tt-file { color: #94a3b8; }
+  svg { width: 100vw; height: 100vh; }
+  .link { stroke: #334155; stroke-opacity: 0.6; }
+  .link.highlighted { stroke: #60a5fa; stroke-opacity: 1; stroke-width: 2; }
+  .hyperedge { fill: none; stroke: #f59e0b; stroke-opacity: 0.4; stroke-width: 1.5; stroke-dasharray: 4,4; }
+  .node circle { stroke: #1e293b; stroke-width: 2px; cursor: grab; }
+  .node circle:active { cursor: grabbing; }
+  .node text { fill: #cbd5e1; font-size: 10px; pointer-events: none; }
+</style>
+</head>
+<body>
+<div id="header">
+  <h1>Bhagavad Gita - Knowledge Graph</h1>
+  <p>Interactive visualization of concepts, code, and connections</p>
+</div>
+<div id="stats">
+  <div class="stat"><span>Nodes</span><span class="stat-value">30</span></div>
+  <div class="stat"><span>Edges</span><span class="stat-value">30</span></div>
+  <div class="stat"><span>Hyperedges</span><span class="stat-value">2</span></div>
+  <div class="stat"><span>Communities</span><span class="stat-value">12</span></div>
+</div>
+<div id="legend"><h3>Communities</h3></div>
+<div id="tooltip"><div class="tt-title"></div><div class="tt-file"></div></div>
+
+<script>
+const data = {"nodes": [{"id": "next_env_d_ts", "label": "next-env.d.ts", "file_type": "code", "source_file": "next-env.d.ts", "source_location": "L1", "community": "community_0"}, {"id": "next_config_ts", "label": "next.config.ts", "file_type": "code", "source_file": "next.config.ts", "source_location": "L1", "community": "community_1"}, {"id": "postcss_config_mjs", "label": "postcss.config.mjs", "file_type": "code", "source_file": "postcss.config.mjs", "source_location": "L1", "community": "community_2"}, {"id": "eslint_config_mjs", "label": "eslint.config.mjs", "file_type": "code", "source_file": "eslint.config.mjs", "source_location": "L1", "community": "community_3"}, {"id": "app_page_tsx", "label": "page.tsx", "file_type": "code", "source_file": "app/page.tsx", "source_location": "L1", "community": "community_4"}, {"id": "app_layout_tsx", "label": "layout.tsx", "file_type": "code", "source_file": "app/layout.tsx", "source_location": "L1", "community": "community_1"}, {"id": "app_layout_rootlayout", "label": "RootLayout()", "file_type": "code", "source_file": "app/layout.tsx", "source_location": "L20", "community": "community_1"}, {"id": "summary_bhagavad_gita", "label": "Bhagavad Gita Chapter Summary", "file_type": "document", "source_file": "data/summary.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_5"}, {"id": "summary_krishna", "label": "Krishna - Supreme Personality", "file_type": "document", "source_file": "data/summary.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_5"}, {"id": "summary_arjuna", "label": "Arjuna - Warrior Disciple", "file_type": "document", "source_file": "data/summary.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_5"}, {"id": "summary_karma_yoga", "label": "Karma Yoga - Selfless Action", "file_type": "document", "source_file": "data/summary.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_5"}, {"id": "summary_buddhi_yoga", "label": "Buddhi Yoga - Intelligence in Action", "file_type": "document", "source_file": "data/summary.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_5"}, {"id": "summary_dhyana_yoga", "label": "Dhyana Yoga - Meditation", "file_type": "document", "source_file": "data/summary.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_5"}, {"id": "summary_devotional_service", "label": "Devotional Service (Bhakti)", "file_type": "document", "source_file": "data/summary.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_5"}, {"id": "summary_three_modes", "label": "Three Modes of Material Nature", "file_type": "document", "source_file": "data/summary.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_5"}, {"id": "summary_soul", "label": "Eternal Soul (Atman)", "file_type": "document", "source_file": "data/summary.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_5"}, {"id": "summary_duty", "label": "Dharma - Sacred Duty", "file_type": "document", "source_file": "data/summary.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_5"}, {"id": "summary_renunciation", "label": "Renunciation (Tyaga/Sannyasa)", "file_type": "document", "source_file": "data/summary.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_5"}, {"id": "summary_kurukshetra", "label": "Battlefield of Kurukshetra", "file_type": "document", "source_file": "data/summary.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_5"}, {"id": "summary_universal_form", "label": "Universal Form (Vishvarupa)", "file_type": "document", "source_file": "data/summary.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_5"}, {"id": "nextjs_getting_started", "label": "Next.js Getting Started Guide", "file_type": "document", "source_file": "README.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_6"}, {"id": "nextjs_deployment", "label": "Vercel Deployment", "file_type": "document", "source_file": "README.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_6"}, {"id": "nextjs_font_optimization", "label": "Next.js Font Optimization (Geist)", "file_type": "document", "source_file": "README.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_6"}, {"id": "agent_nextjs_rules", "label": "Next.js Agent Rules", "file_type": "document", "source_file": "AGENTS.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_7"}, {"id": "claude_instructions", "label": "Claude Code Instructions", "file_type": "document", "source_file": "CLAUDE.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_7"}, {"id": "next_logo", "label": "Next.js Logo SVG", "file_type": "image", "source_file": "public/next.svg", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_8"}, {"id": "vercel_logomark", "label": "Vercel Logomark SVG", "file_type": "image", "source_file": "public/vercel.svg", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_8"}, {"id": "file_icon", "label": "File Icon SVG", "file_type": "image", "source_file": "public/file.svg", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_9"}, {"id": "globe_icon", "label": "Globe Icon SVG", "file_type": "image", "source_file": "public/globe.svg", "source_location": null, "source_url": null, "captated_at": null, "author": null, "contributor": null, "community": "community_10"}, {"id": "window_icon", "label": "Window Icon SVG", "file_type": "image", "source_file": "public/window.svg", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null, "community": "community_11"}], "edges": [{"source": "next_env_d_ts", "target": "home_rohitkd_programs_geeta_bahgwatgeeta_bh_geeta_fe_next_types_routes_d_ts", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "next-env.d.ts", "source_location": "L3", "weight": 1.0}, {"source": "next_config_ts", "target": "next", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "next.config.ts", "source_location": "L1", "weight": 1.0}, {"source": "eslint_config_mjs", "target": "config", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "eslint.config.mjs", "source_location": "L1", "weight": 1.0}, {"source": "eslint_config_mjs", "target": "core_web_vitals", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "eslint.config.mjs", "source_location": "L2", "weight": 1.0}, {"source": "eslint_config_mjs", "target": "typescript", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "eslint.config.mjs", "source_location": "L3", "weight": 1.0}, {"source": "app_page_tsx", "target": "image", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "app/page.tsx", "source_location": "L1", "weight": 1.0}, {"source": "app_layout_tsx", "target": "next", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "app/layout.tsx", "source_location": "L1", "weight": 1.0}, {"source": "app_layout_tsx", "target": "google", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "app/layout.tsx", "source_location": "L2", "weight": 1.0}, {"source": "app_layout_tsx", "target": "home_rohitkd_programs_geeta_bahgwatgeeta_bh_geeta_fe_app_globals_css", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "app/layout.tsx", "source_location": "L3", "weight": 1.0}, {"source": "app_layout_tsx", "target": "app_layout_rootlayout", "relation": "contains", "confidence": "EXTRACTED", "source_file": "app/layout.tsx", "source_location": "L20", "weight": 1.0}, {"source": "summary_krishna", "target": "summary_arjuna", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "data/summary.md", "source_location": null, "weight": 1.0}, {"source": "summary_krishna", "target": "summary_karma_yoga", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "data/summary.md", "source_location": null, "weight": 1.0}, {"source": "summary_krishna", "target": "summary_devotional_service", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "data/summary.md", "source_location": null, "weight": 1.0}, {"source": "summary_arjuna", "target": "summary_duty", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "data/summary.md", "source_location": null, "weight": 1.0}, {"source": "summary_arjuna", "target": "summary_kurukshetra", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "data/summary.md", "source_location": null, "weight": 1.0}, {"source": "summary_karma_yoga", "target": "summary_buddhi_yoga", "relation": "conceptually_related_to", "confidence": "INFERRED", "confidence_score": 0.85, "source_file": "data/summary.md", "source_location": null, "weight": 1.0}, {"source": "summary_karma_yoga", "target": "summary_renunciation", "relation": "conceptually_related_to", "confidence": "INFERRED", "confidence_score": 0.8, "source_file": "data/summary.md", "source_location": null, "weight": 1.0}, {"source": "summary_dhyana_yoga", "target": "summary_devotional_service", "relation": "conceptually_related_to", "confidence": "INFERRED", "confidence_score": 0.75, "source_file": "data/summary.md", "source_location": null, "weight": 1.0}, {"source": "summary_three_modes", "target": "summary_soul", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "data/summary.md", "source_location": null, "weight": 1.0}, {"source": "summary_krishna", "target": "summary_universal_form", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "data/summary.md", "source_location": null, "weight": 1.0}, {"source": "summary_krishna", "target": "summary_three_modes", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "data/summary.md", "source_location": null, "weight": 1.0}, {"source": "summary_bhagavad_gita", "target": "summary_krishna", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "data/summary.md", "source_location": null, "weight": 1.0}, {"source": "summary_bhagavad_gita", "target": "summary_arjuna", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "data/summary.md", "source_location": null, "weight": 1.0}, {"source": "summary_bhagavad_gita", "target": "summary_karma_yoga", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "data/summary.md", "source_location": null, "weight": 1.0}, {"source": "summary_bhagavad_gita", "target": "summary_dhyana_yoga", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "data/summary.md", "source_location": null, "weight": 1.0}, {"source": "summary_bhagavad_gita", "target": "summary_devotional_service", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "data/summary.md", "source_location": null, "weight": 1.0}, {"source": "nextjs_getting_started", "target": "nextjs_deployment", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "README.md", "source_location": null, "weight": 1.0}, {"source": "nextjs_getting_started", "target": "nextjs_font_optimization", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "README.md", "source_location": null, "weight": 1.0}, {"source": "agent_nextjs_rules", "target": "claude_instructions", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "AGENTS.md", "source_location": null, "weight": 1.0}, {"source": "next_logo", "target": "vercel_logomark", "relation": "conceptually_related_to", "confidence": "INFERRED", "confidence_score": 0.7, "source_file": "public/next.svg", "source_location": null, "weight": 1.0}], "hyperedges": [{"id": "yoga_paths", "label": "Yoga Paths to Self-Realization", "nodes": ["summary_karma_yoga", "summary_buddhi_yoga", "summary_dhyana_yoga", "summary_devotional_service"], "relation": "participate_in", "confidence": "INFERRED", "confidence_score": 0.85, "source_file": "data/summary.md"}, {"id": "krishna_teachings", "label": "Krishna's Core Teachings", "nodes": ["summary_krishna", "summary_soul", "summary_duty", "summary_three_modes", "summary_devotional_service"], "relation": "participate_in", "confidence": "INFERRED", "confidence_score": 0.9, "source_file": "data/summary.md"}], "communities": {"num_communities": 12, "communities": [{"id": "community_0", "nodes": ["next_env_d_ts", "home_rohitkd_programs_geeta_bahgwatgeeta_bh_geeta_fe_next_types_routes_d_ts"], "size": 2}, {"id": "community_1", "nodes": ["next_config_ts", "next", "app_layout_tsx", "app_layout_rootlayout", "home_rohitkd_programs_geeta_bahgwatgeeta_bh_geeta_fe_app_globals_css", "google"], "size": 6}, {"id": "community_2", "nodes": ["postcss_config_mjs"], "size": 1}, {"id": "community_3", "nodes": ["eslint_config_mjs", "typescript", "config", "core_web_vitals"], "size": 4}, {"id": "community_4", "nodes": ["app_page_tsx", "image"], "size": 2}, {"id": "community_5", "nodes": ["summary_bhagavad_gita", "summary_krishna", "summary_devotional_service", "summary_karma_yoga", "summary_arjuna", "summary_dhyana_yoga", "summary_three_modes", "summary_universal_form", "summary_renunciation", "summary_buddhi_yoga", "summary_duty", "summary_kurukshetra", "summary_soul"], "size": 13}, {"id": "community_6", "nodes": ["nextjs_getting_started", "nextjs_deployment", "nextjs_font_optimization"], "size": 3}, {"id": "community_7", "nodes": ["agent_nextjs_rules", "claude_instructions"], "size": 2}, {"id": "community_8", "nodes": ["next_logo", "vercel_logomark"], "size": 2}, {"id": "community_9", "nodes": ["file_icon"], "size": 1}, {"id": "community_10", "nodes": ["globe_icon"], "size": 1}, {"id": "community_11", "nodes": ["window_icon"], "size": 1}]}};
+const colorMap = {"community_0": "#6366f1", "community_1": "#ec4899", "community_2": "#14b8a6", "community_3": "#f59e0b", "community_4": "#8b5cf6", "community_5": "#06b6d4", "community_6": "#f97316", "community_7": "#84cc16", "community_8": "#e11d48", "community_9": "#7c3aed", "community_10": "#0ea5e9", "community_11": "#d946ef"};
+
+// Build legend
+const legend = document.getElementById('legend');
+data.communities.communities.forEach(c => {
+  const item = document.createElement('div');
+  item.className = 'legend-item';
+  item.innerHTML = `<span class="legend-dot" style="background:${colorMap[c.id]}"></span>${c.id} (${c.size})`;
+  legend.appendChild(item);
+});
+
+// D3 force graph
+const width = window.innerWidth;
+const height = window.innerHeight;
+
+const nodes = data.nodes.map(n => ({
+  ...n,
+  radius: n.file_type === 'document' ? 8 : (n.file_type === 'code' ? 6 : 4),
+}));
+const links = data.edges.map(e => ({ source: e.source, target: e.target, confidence: e.confidence }));
+
+const svg = d3.select('body').append('svg')
+  .attr('viewBox', [0, 0, width, height]);
+
+// Zoom
+const g = svg.append('g');
+const zoom = d3.zoom().scaleExtent([0.2, 5]).on('zoom', (e) => g.attr('transform', e.transform));
+svg.call(zoom);
+
+// Links
+const link = g.append('g')
+  .selectAll('line')
+  .data(links)
+  .join('line')
+  .attr('class', 'link')
+  .attr('stroke-width', d => d.confidence === 'EXTRACTED' ? 2 : 1);
+
+// Nodes
+const node = g.append('g')
+  .selectAll('g')
+  .data(nodes)
+  .join('g')
+  .attr('class', 'node')
+  .call(d3.drag()
+    .on('start', dragStart)
+    .on('drag', dragged)
+    .on('end', dragEnd));
+
+node.append('circle')
+  .attr('r', d => d.radius)
+  .attr('fill', d => colorMap[d.community] || '#64748b');
+
+node.append('text')
+  .attr('dx', d => d.radius + 4)
+  .attr('dy', '0.35em')
+  .text(d => d.label.length > 25 ? d.label.slice(0, 25) + '...' : d.label);
+
+// Tooltip
+const tooltip = document.getElementById('tooltip');
+node.on('mouseover', function(event, d) {
+  tooltip.querySelector('.tt-title').textContent = d.label;
+  tooltip.querySelector('.tt-file').textContent = d.source_file || '';
+  tooltip.style.opacity = 1;
+  tooltip.style.left = (event.pageX + 12) + 'px';
+  tooltip.style.top = (event.pageY - 12) + 'px';
+  d3.select(this).select('circle').attr('r', d.radius * 1.5);
+}).on('mouseout', function(event, d) {
+  tooltip.style.opacity = 0;
+  d3.select(this).select('circle').attr('r', d.radius);
+});
+
+// Force simulation
+const simulation = d3.forceSimulation(nodes)
+  .force('link', d3.forceLink(links).id(d => d.id).distance(120))
+  .force('charge', d3.forceManyBody().strength(-400))
+  .force('center', d3.forceCenter(width / 2, height / 2))
+  .force('collision', d3.forceCollide().radius(30))
+  .force('x', d3.forceX(width / 2).strength(0.05))
+  .force('y', d3.forceY(height / 2).strength(0.05))
+  .on('tick', ticked);
+
+function ticked() {
+  link
+    .attr('x1', d => d.source.x)
+    .attr('y1', d => d.source.y)
+    .attr('x2', d => d.target.x)
+    .attr('y2', d => d.target.y);
+  node.attr('transform', d => `translate(${d.x},${d.y})`);
+}
+
+function dragStart(event, d) {
+  if (!event.active) simulation.alphaTarget(0.3).restart();
+  d.fx = d.x; d.fy = d.y;
+}
+function dragged(event, d) {
+  d.fx = event.x; d.fy = event.y;
+}
+function dragEnd(event, d) {
+  if (!event.active) simulation.alphaTarget(0);
+  d.fx = null; d.fy = null;
+}
+
+// Initial zoom to fit
+setTimeout(() => {
+  simulation.alpha(0.8).restart();
+}, 100);
+</script>
+</body>
+</html>

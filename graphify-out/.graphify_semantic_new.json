@@ -1,0 +1,492 @@
+{
+  "nodes": [
+    {
+      "id": "summary_bhagavad_gita",
+      "label": "Bhagavad Gita Chapter Summary",
+      "file_type": "document",
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "summary_krishna",
+      "label": "Krishna - Supreme Personality",
+      "file_type": "document",
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "summary_arjuna",
+      "label": "Arjuna - Warrior Disciple",
+      "file_type": "document",
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "summary_karma_yoga",
+      "label": "Karma Yoga - Selfless Action",
+      "file_type": "document",
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "summary_buddhi_yoga",
+      "label": "Buddhi Yoga - Intelligence in Action",
+      "file_type": "document",
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "summary_dhyana_yoga",
+      "label": "Dhyana Yoga - Meditation",
+      "file_type": "document",
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "summary_devotional_service",
+      "label": "Devotional Service (Bhakti)",
+      "file_type": "document",
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "summary_three_modes",
+      "label": "Three Modes of Material Nature",
+      "file_type": "document",
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "summary_soul",
+      "label": "Eternal Soul (Atman)",
+      "file_type": "document",
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "summary_duty",
+      "label": "Dharma - Sacred Duty",
+      "file_type": "document",
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "summary_renunciation",
+      "label": "Renunciation (Tyaga/Sannyasa)",
+      "file_type": "document",
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "summary_kurukshetra",
+      "label": "Battlefield of Kurukshetra",
+      "file_type": "document",
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "summary_universal_form",
+      "label": "Universal Form (Vishvarupa)",
+      "file_type": "document",
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "nextjs_getting_started",
+      "label": "Next.js Getting Started Guide",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "nextjs_deployment",
+      "label": "Vercel Deployment",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "nextjs_font_optimization",
+      "label": "Next.js Font Optimization (Geist)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agent_nextjs_rules",
+      "label": "Next.js Agent Rules",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claude_instructions",
+      "label": "Claude Code Instructions",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "next_logo",
+      "label": "Next.js Logo SVG",
+      "file_type": "image",
+      "source_file": "public/next.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "vercel_logomark",
+      "label": "Vercel Logomark SVG",
+      "file_type": "image",
+      "source_file": "public/vercel.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "file_icon",
+      "label": "File Icon SVG",
+      "file_type": "image",
+      "source_file": "public/file.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "globe_icon",
+      "label": "Globe Icon SVG",
+      "file_type": "image",
+      "source_file": "public/globe.svg",
+      "source_location": null,
+      "source_url": null,
+      "captated_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "window_icon",
+      "label": "Window Icon SVG",
+      "file_type": "image",
+      "source_file": "public/window.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "summary_krishna",
+      "target": "summary_arjuna",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "summary_krishna",
+      "target": "summary_karma_yoga",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "summary_krishna",
+      "target": "summary_devotional_service",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "summary_arjuna",
+      "target": "summary_duty",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "summary_arjuna",
+      "target": "summary_kurukshetra",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "summary_karma_yoga",
+      "target": "summary_buddhi_yoga",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "summary_karma_yoga",
+      "target": "summary_renunciation",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "summary_dhyana_yoga",
+      "target": "summary_devotional_service",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "summary_three_modes",
+      "target": "summary_soul",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "summary_krishna",
+      "target": "summary_universal_form",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "summary_krishna",
+      "target": "summary_three_modes",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "summary_bhagavad_gita",
+      "target": "summary_krishna",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "summary_bhagavad_gita",
+      "target": "summary_arjuna",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "summary_bhagavad_gita",
+      "target": "summary_karma_yoga",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "summary_bhagavad_gita",
+      "target": "summary_dhyana_yoga",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "summary_bhagavad_gita",
+      "target": "summary_devotional_service",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "data/summary.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "nextjs_getting_started",
+      "target": "nextjs_deployment",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "nextjs_getting_started",
+      "target": "nextjs_font_optimization",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agent_nextjs_rules",
+      "target": "claude_instructions",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "next_logo",
+      "target": "vercel_logomark",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "public/next.svg",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "yoga_paths",
+      "label": "Yoga Paths to Self-Realization",
+      "nodes": [
+        "summary_karma_yoga",
+        "summary_buddhi_yoga",
+        "summary_dhyana_yoga",
+        "summary_devotional_service"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "data/summary.md"
+    },
+    {
+      "id": "krishna_teachings",
+      "label": "Krishna's Core Teachings",
+      "nodes": [
+        "summary_krishna",
+        "summary_soul",
+        "summary_duty",
+        "summary_three_modes",
+        "summary_devotional_service"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "data/summary.md"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

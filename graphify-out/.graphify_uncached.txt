@@ -1,0 +1,15 @@
+/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/next-env.d.ts
+/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/next.config.ts
+/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/postcss.config.mjs
+/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/eslint.config.mjs
+/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/app/page.tsx
+/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/app/layout.tsx
+/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/AGENTS.md
+/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/CLAUDE.md
+/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/README.md
+/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/data/summary.md
+/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/public/next.svg
+/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/public/file.svg
+/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/public/vercel.svg
+/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/public/globe.svg
+/home/rohitkd/programs/geeta/bahgwatgeeta/bh-geeta-fe/public/window.svg
