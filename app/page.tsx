@@ -1,65 +1,196 @@
+"use client";
+
+import {
+  ArrowRight,
+  Bookmark,
+  Clock,
+  Activity,
+  Loader2,
+  Sparkles,
+  Infinity,
+  Quote,
+} from "lucide-react";
+import Link from "next/link";
+import { cn } from "@/utils/cn";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="flex flex-col gap-8 pb-12 animate-in fade-in duration-700">
+      {/* Verse of the Day Card */}
+      <section className="relative overflow-hidden rounded-2xl border border-[#222] bg-gradient-to-br from-[#121212] to-[#1a1a1a] p-10 md:p-14 shadow-2xl">
+        <div className="absolute top-0 right-0 w-1/2 h-full opacity-30 md:opacity-50 pointer-events-none">
+          <div className="w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent absolute" />
+          {/* We'll use a placeholder for the lotus image as I don't have the exact image */}
+          <Image
+            src={"/flower.png"}
+            height={400}
+            width={600}
+            alt="Bhagwat gita"
+            className="absolute right-0 top-1/2 -translate-y-1/2 text-[200px] text-zinc-800/10 rotate-12 select-none"
+          />
+        </div>
+
+        <div className="relative z-10 max-w-2xl">
+          <div className="inline-block px-3 py-1 mb-6 text-xs font-bold tracking-wider text-[#A87FFB] bg-[#A87FFB]/10 rounded-full">
+            VERSE OF THE DAY
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold font-serif mb-6 drop-shadow-md">
+            Chapter 2, Verse 47
+          </h2>
+          <p className="text-2xl md:text-3xl italic font-serif text-zinc-300 mb-8 leading-relaxed">
+            &quot;karmaṇy-evādhikāras te mā phaleṣhu kadāchana...&quot;
           </p>
+          <p className="text-lg text-zinc-400 mb-10 leading-relaxed max-w-xl">
+            You have a right to perform your prescribed duties, but you are not
+            entitled to the fruits of your actions. Never consider yourself to
+            be the cause of the results of your activities, nor be attached to
+            inaction.
+          </p>
+          <div className="flex flex-wrap items-center gap-4">
+            <Link
+              href="/chapters/2/verse/47"
+              className="flex items-center gap-2 px-6 py-3 font-semibold text-black bg-[#A87FFB] hover:bg-[#b592fb] rounded-lg transition-colors shadow-[0_0_20px_rgba(168,127,251,0.3)] hover:shadow-[0_0_30px_rgba(168,127,251,0.5)]"
+            >
+              Explore Chapter <ArrowRight className="w-4 h-4" />
+            </Link>
+            {/* <button className="flex items-center gap-2 px-6 py-3 font-semibold text-white border border-zinc-700 bg-black/40 hover:bg-zinc-800 rounded-lg transition-colors">
+              <Bookmark className="w-4 h-4" /> Save Verse
+            </button> */}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </section>
+
+      {/* Two Column Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Significance */}
+        <section className="lg:col-span-2 rounded-2xl border border-[#222] bg-[#121212] p-8 md:p-10 flex flex-col justify-between">
+          <div>
+            <div className="flex items-center gap-2 text-[#2ECC71] mb-6 text-sm font-bold tracking-widest uppercase">
+              <Sparkles className="w-4 h-4" /> Significance
+            </div>
+            <h3 className="text-3xl font-bold font-serif mb-6">
+              The Manual of Life
+            </h3>
+            <p className="text-zinc-400 text-lg leading-relaxed mb-10">
+              The Bhagavad Gita is not just a spiritual text; it is a profound
+              psychological and philosophical discourse delivered on the edge of
+              a battlefield. It addresses the universal human experience of
+              doubt, duty, and the nature of existence with mathematical
+              precision and timeless clarity.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { label: "CHAPTERS", value: "18" },
+              { label: "VERSES", value: "700" },
+              { label: "YEARS OLD", value: "5K+" },
+              {
+                label: "WISDOM",
+                value: <Infinity className="w-8 h-8 text-[#A87FFB]" />,
+              },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className="p-6 rounded-xl border border-zinc-800 bg-zinc-900/50 flex flex-col items-center justify-center text-center hover:bg-zinc-800 transition-colors"
+              >
+                <div className="text-3xl font-bold mb-2 text-white">
+                  {stat.value}
+                </div>
+                <div className="text-xs uppercase tracking-widest text-zinc-500 font-semibold">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Continue Reading */}
+        <section className="rounded-2xl border border-[#222] bg-[#121212] p-8 md:p-10 flex flex-col justify-between">
+          <div>
+            <h3 className="text-2xl font-bold font-serif mb-6">
+              Continue Reading
+            </h3>
+            <div className="flex flex-col gap-4">
+              {/* Reading Card 1 */}
+              <Link
+                href="/chapters/4/verse/12"
+                className="block p-5 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800 hover:border-zinc-700 transition-all group"
+              >
+                <div className="flex justify-between items-start mb-2">
+                  <span className="text-xs font-bold text-[#A87FFB] px-2 py-1 bg-[#A87FFB]/10 rounded uppercase">
+                    Ch 4.12
+                  </span>
+                  <Clock className="w-4 h-4 text-zinc-500 group-hover:text-zinc-300" />
+                </div>
+                <h4 className="font-semibold text-lg mb-1">
+                  The Path of Knowledge
+                </h4>
+                <p className="text-sm text-zinc-500">Read 2 days ago</p>
+              </Link>
+
+              {/* Reading Card 2 */}
+              <Link
+                href="/chapters/1/verse/1"
+                className="block p-5 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800 hover:border-zinc-700 transition-all group"
+              >
+                <div className="flex justify-between items-start mb-2">
+                  <span className="text-xs font-bold text-[#A87FFB] px-2 py-1 bg-[#A87FFB]/10 rounded uppercase">
+                    Ch 1.1
+                  </span>
+                  <Activity className="w-4 h-4 text-zinc-500 group-hover:text-zinc-300" />
+                </div>
+                <h4 className="font-semibold text-lg mb-1">
+                  The Yoga of Dejection
+                </h4>
+                <p className="text-sm text-zinc-500">
+                  Start from the beginning
+                </p>
+              </Link>
+            </div>
+          </div>
+
+          <Link
+            href="/history"
+            className="mt-8 flex items-center justify-center gap-2 text-sm font-semibold text-zinc-400 hover:text-white transition-colors py-4"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            View Reading History <ArrowRight className="w-4 h-4" />
+          </Link>
+        </section>
+      </div>
+
+      {/* Wisdom Tags */}
+      <section className="mt-8">
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-xl font-bold font-serif">WISDOM TAGS</h3>
+          <Link
+            href="/search"
+            className="text-sm font-semibold text-[#A87FFB] hover:text-[#b592fb] transition-colors"
           >
-            Documentation
-          </a>
+            Browse all topics
+          </Link>
         </div>
-      </main>
+        <div className="flex flex-wrap gap-3">
+          {[
+            "Karma",
+            "Dharma",
+            "Meditation",
+            "Bhakti Yoga",
+            "Self-Realization",
+            "Duty",
+            "Mind Control",
+          ].map((tag) => (
+            <Link
+              key={tag}
+              href={`/search?q=${tag}`}
+              className="px-5 py-2.5 rounded-full border border-zinc-800 bg-[#121212] text-sm font-medium text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors"
+            >
+              {tag}
+            </Link>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
