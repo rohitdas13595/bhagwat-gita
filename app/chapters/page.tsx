@@ -10,7 +10,7 @@ export default function ChaptersPage() {
         <h1 className="text-4xl md:text-5xl font-bold font-serif mb-4">
           The Eighteen Chapters
         </h1>
-        <p className="text-lg text-zinc-400 leading-relaxed">
+        <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
           A comprehensive index of the sacred dialogue between Sri Krishna and
           Arjuna, categorized by the three pillars of Yoga: Karma, Bhakti, and
           Jnana.
@@ -25,7 +25,7 @@ export default function ChaptersPage() {
             return (
               <div
                 key={chapter.id}
-                className="lg:col-span-2 relative overflow-hidden rounded-2xl border border-[#222] bg-gradient-to-br from-[#1b1229] to-[#0A0A0A] p-8 md:p-10 group"
+                className="lg:col-span-2 relative overflow-hidden rounded-2xl border border-zinc-200 dark:border-[#222] bg-white dark:bg-gradient-to-br dark:from-[#1b1229] dark:to-[#0A0A0A] p-8 md:p-10 group shadow-lg dark:shadow-none"
               >
                 <div className="absolute inset-0 bg-[url('/flower.png')] opacity-10 bg-cover bg-center mix-blend-screen transition-opacity duration-700 group-hover:opacity-20" />
 
@@ -34,17 +34,17 @@ export default function ChaptersPage() {
                     <span className="text-xs font-bold text-[#2ECC71] bg-[#2ECC71]/10 px-3 py-1 rounded uppercase tracking-widest">
                       FEATURED: CHAPTER {chapter.chapter_number}
                     </span>
-                    <div className="flex items-center gap-1.5 text-xs text-zinc-400 font-semibold tracking-wider uppercase">
+                    <div className="flex items-center gap-1.5 text-xs text-zinc-600 dark:text-zinc-400 font-semibold tracking-wider uppercase">
                       <ListVideo className="w-4 h-4" /> {chapter.verses_count}{" "}
                       Verses
                     </div>
                   </div>
 
                   <div>
-                    <h2 className="text-3xl lg:text-4xl font-bold font-serif mb-3 text-white">
+                    <h2 className="text-3xl lg:text-4xl font-bold font-serif mb-3 text-black dark:text-white">
                       {chapter.name_translation}
                     </h2>
-                    <p className="text-zinc-300 text-lg mb-8 max-w-xl">
+                    <p className="text-zinc-600 dark:text-zinc-300 text-lg mb-8 max-w-xl">
                       Arjuna beholds the Universal Form of Sri Krishna,
                       encompassing all universes, beings, and times in a single
                       cosmic revelation.
@@ -69,7 +69,7 @@ export default function ChaptersPage() {
             <Link
               key={chapter.id}
               href={`/chapters/${chapter.chapter_number}`}
-              className="group flex flex-col justify-between p-7 rounded-2xl border border-[#222] bg-[#121212] hover:bg-zinc-900 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-purple-900/10"
+              className="group flex flex-col justify-between p-7 rounded-2xl border border-zinc-200 dark:border-[#222] bg-white dark:bg-[#121212] hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-2xl hover:shadow-purple-100 dark:hover:shadow-purple-900/10 shadow-sm dark:shadow-none"
             >
               <div>
                 <div className="flex justify-between items-start mb-6">
@@ -85,16 +85,16 @@ export default function ChaptersPage() {
                   </div>
                 </div>
 
-                <h2 className="text-2xl font-bold font-serif mb-2 text-zinc-100 group-hover:text-white transition-colors">
+                <h2 className="text-2xl font-bold font-serif mb-2 text-black dark:text-zinc-100 group-hover:text-[#A87FFB] dark:group-hover:text-white transition-colors">
                   {chapter.name_translation}
                 </h2>
-                <p className="text-sm font-serif italic text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                <p className="text-sm font-serif italic text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
                   {chapter.name_meaning}
                 </p>
               </div>
 
-              <div className="mt-12 flex items-center justify-between border-t border-zinc-800/50 pt-5">
-                <span className="text-[10px] uppercase tracking-widest text-zinc-600 font-bold group-hover:text-zinc-400 transition-colors">
+              <div className="mt-12 flex items-center justify-between border-t border-zinc-200 dark:border-zinc-800/50 pt-5">
+                <span className="text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-600 font-bold group-hover:text-zinc-700 dark:group-hover:text-zinc-400 transition-colors">
                   {getChapterCategory(chapter.chapter_number)}
                 </span>
                 <ArrowRight className="w-5 h-5 text-zinc-600 group-hover:text-[#A87FFB] transition-colors" />
@@ -105,13 +105,13 @@ export default function ChaptersPage() {
       </div>
 
       <div className="mt-8 flex justify-center">
-        <button className="px-8 py-3 rounded-full border border-[#222] bg-[#0A0A0A] hover:bg-zinc-900 text-sm font-semibold transition-colors">
+        <button className="px-8 py-3 rounded-full border border-zinc-300 dark:border-[#222] bg-white dark:bg-[#0A0A0A] hover:bg-zinc-50 dark:hover:bg-zinc-900 text-black dark:text-white text-sm font-semibold transition-colors shadow-sm dark:shadow-none">
           View All 18 Chapters
         </button>
       </div>
 
       {/* Footer */}
-      <footer className="mt-20 pt-8 border-t border-[#222] flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-zinc-500 font-bold">
+      <footer className="mt-20 pt-8 border-t border-zinc-200 dark:border-[#222] flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-zinc-500 font-bold">
         <div className="flex gap-8">
           <Link href="#" className="hover:text-zinc-300 transition-colors">
             Privacy

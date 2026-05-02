@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-8 pb-12 animate-in fade-in duration-700">
       {/* Verse of the Day Card */}
-      <section className="relative overflow-hidden rounded-2xl border border-[#222] bg-gradient-to-br from-[#121212] to-[#1a1a1a] p-10 md:p-14 shadow-2xl">
+      <section className="relative overflow-hidden rounded-2xl border border-zinc-200 dark:border-[#222] bg-white dark:bg-gradient-to-br dark:from-[#121212] dark:to-[#1a1a1a] p-10 md:p-14 shadow-xl dark:shadow-2xl">
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-30 md:opacity-50 pointer-events-none">
           <div className="w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent absolute" />
           {/* We'll use a placeholder for the lotus image as I don't have the exact image */}
@@ -38,10 +38,10 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-bold font-serif mb-6 drop-shadow-md">
             Chapter 2, Verse 47
           </h2>
-          <p className="text-2xl md:text-3xl italic font-serif text-zinc-300 mb-8 leading-relaxed">
+          <p className="text-2xl md:text-3xl italic font-serif text-zinc-700 dark:text-zinc-300 mb-8 leading-relaxed">
             &quot;karmaṇy-evādhikāras te mā phaleṣhu kadāchana...&quot;
           </p>
-          <p className="text-lg text-zinc-400 mb-10 leading-relaxed max-w-xl">
+          <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-10 leading-relaxed max-w-xl">
             You have a right to perform your prescribed duties, but you are not
             entitled to the fruits of your actions. Never consider yourself to
             be the cause of the results of your activities, nor be attached to
@@ -64,15 +64,15 @@ export default function Home() {
       {/* Two Column Section */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Significance */}
-        <section className="lg:col-span-2 rounded-2xl border border-[#222] bg-[#121212] p-8 md:p-10 flex flex-col justify-between">
+        <section className="lg:col-span-2 rounded-2xl border border-zinc-200 dark:border-[#222] bg-white dark:bg-[#121212] p-8 md:p-10 flex flex-col justify-between shadow-sm dark:shadow-none">
           <div>
             <div className="flex items-center gap-2 text-[#2ECC71] mb-6 text-sm font-bold tracking-widest uppercase">
               <Sparkles className="w-4 h-4" /> Significance
             </div>
-            <h3 className="text-3xl font-bold font-serif mb-6">
+            <h3 className="text-3xl font-bold font-serif mb-6 text-black dark:text-white">
               The Manual of Life
             </h3>
-            <p className="text-zinc-400 text-lg leading-relaxed mb-10">
+            <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed mb-10">
               The Bhagavad Gita is not just a spiritual text; it is a profound
               psychological and philosophical discourse delivered on the edge of
               a battlefield. It addresses the universal human experience of
@@ -93,9 +93,9 @@ export default function Home() {
             ].map((stat, i) => (
               <div
                 key={i}
-                className="p-6 rounded-xl border border-zinc-800 bg-zinc-900/50 flex flex-col items-center justify-center text-center hover:bg-zinc-800 transition-colors"
+                className="p-6 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 flex flex-col items-center justify-center text-center hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
               >
-                <div className="text-3xl font-bold mb-2 text-white">
+                <div className="text-3xl font-bold mb-2 text-black dark:text-white">
                   {stat.value}
                 </div>
                 <div className="text-xs uppercase tracking-widest text-zinc-500 font-semibold">
@@ -107,24 +107,24 @@ export default function Home() {
         </section>
 
         {/* Continue Reading */}
-        <section className="rounded-2xl border border-[#222] bg-[#121212] p-8 md:p-10 flex flex-col justify-between">
+        <section className="rounded-2xl border border-zinc-200 dark:border-[#222] bg-white dark:bg-[#121212] p-8 md:p-10 flex flex-col justify-between shadow-sm dark:shadow-none">
           <div>
-            <h3 className="text-2xl font-bold font-serif mb-6">
+            <h3 className="text-2xl font-bold font-serif mb-6 text-black dark:text-white">
               Continue Reading
             </h3>
             <div className="flex flex-col gap-4">
               {/* Reading Card 1 */}
               <Link
                 href="/chapters/4/verse/12"
-                className="block p-5 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800 hover:border-zinc-700 transition-all group"
+                className="block p-5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all group"
               >
                 <div className="flex justify-between items-start mb-2">
                   <span className="text-xs font-bold text-[#A87FFB] px-2 py-1 bg-[#A87FFB]/10 rounded uppercase">
                     Ch 4.12
                   </span>
-                  <Clock className="w-4 h-4 text-zinc-500 group-hover:text-zinc-300" />
+                  <Clock className="w-4 h-4 text-zinc-400 dark:text-zinc-500 group-hover:text-black dark:group-hover:text-zinc-300 transition-colors" />
                 </div>
-                <h4 className="font-semibold text-lg mb-1">
+                <h4 className="font-semibold text-lg mb-1 text-black dark:text-white">
                   The Path of Knowledge
                 </h4>
                 <p className="text-sm text-zinc-500">Read 2 days ago</p>
@@ -133,15 +133,15 @@ export default function Home() {
               {/* Reading Card 2 */}
               <Link
                 href="/chapters/1/verse/1"
-                className="block p-5 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800 hover:border-zinc-700 transition-all group"
+                className="block p-5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all group"
               >
                 <div className="flex justify-between items-start mb-2">
                   <span className="text-xs font-bold text-[#A87FFB] px-2 py-1 bg-[#A87FFB]/10 rounded uppercase">
                     Ch 1.1
                   </span>
-                  <Activity className="w-4 h-4 text-zinc-500 group-hover:text-zinc-300" />
+                  <Activity className="w-4 h-4 text-zinc-400 dark:text-zinc-500 group-hover:text-black dark:group-hover:text-zinc-300 transition-colors" />
                 </div>
-                <h4 className="font-semibold text-lg mb-1">
+                <h4 className="font-semibold text-lg mb-1 text-black dark:text-white">
                   The Yoga of Dejection
                 </h4>
                 <p className="text-sm text-zinc-500">
@@ -153,7 +153,7 @@ export default function Home() {
 
           <Link
             href="/history"
-            className="mt-8 flex items-center justify-center gap-2 text-sm font-semibold text-zinc-400 hover:text-white transition-colors py-4"
+            className="mt-8 flex items-center justify-center gap-2 text-sm font-semibold text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors py-4"
           >
             View Reading History <ArrowRight className="w-4 h-4" />
           </Link>
@@ -163,7 +163,9 @@ export default function Home() {
       {/* Wisdom Tags */}
       <section className="mt-8">
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-bold font-serif">WISDOM TAGS</h3>
+          <h3 className="text-xl font-bold font-serif text-black dark:text-white">
+            WISDOM TAGS
+          </h3>
           <Link
             href="/search"
             className="text-sm font-semibold text-[#A87FFB] hover:text-[#b592fb] transition-colors"
@@ -184,7 +186,7 @@ export default function Home() {
             <Link
               key={tag}
               href={`/search?q=${tag}`}
-              className="px-5 py-2.5 rounded-full border border-zinc-800 bg-[#121212] text-sm font-medium text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors"
+              className="px-5 py-2.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#121212] text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-black dark:hover:text-white transition-colors shadow-sm dark:shadow-none"
             >
               {tag}
             </Link>
